@@ -42,7 +42,7 @@ def data_prep_association():
     df = pd.read_csv('pos_transaction.csv', na_filter=False)
     ###Drop "Transaction","Transactin date", "Quantity", "Transaction_id". Though there is no need for this as in our research
     ### we won't use these variables.
-    df.drop(['Transaction', 'Transactinno', 'REPORT_DATE'], axis=1, inplace=True)
+    df.drop(['Transaction_id', 'Transactin_Date', 'Quantity'], axis=1, inplace=True)
     ###full list of items in the "Product_Name" variable
     df['Product_Name'].value_counts()
 def perform_association():
