@@ -15,12 +15,11 @@ def data_prep():
 	df.loc[mask, 'UTE'] = np.nan
 	df = df[np.isfinite(df['UTE'])]
 	
-	
 	df.drop(['REPORT_DATE', 'DEALER_CODE', 'UTE', 'K__SALES_TOT'], axis=1, inplace=True)
 	
 	return df
 
-def car_displot():
+def car_distplot():
 	df = data_prep()
 	
 	# Distribution of K__SALES_TOT
@@ -28,17 +27,17 @@ def car_displot():
 	#plt.show()
 	
 	# Distribution of HATCH
-	HATCH_dist = sns.distplot(df['HATCH'].dropna())
+	#HATCH_dist = sns.distplot(df['HATCH'].dropna())
 	#plt.show()
 	
-	HATCH_dist = sns.distplot(df['HATCH'].dropna(), bins=100)
+	hatch_dist = sns.distplot(df['HATCH'].dropna(), bins=100)
 	plt.show()
 	
 	# Distribution of WAGON
-	WAGON_dist = sns.distplot(df['WAG0N'].dropna())
+	#WAGON_dist = sns.distplot(df['WAG0N'].dropna())
 	#plt.show()
 	
-	WAGON_dist = sns.distplot(df['WAG0N'].dropna(), bins=100)
+	wagon_dist = sns.distplot(df['WAG0N'].dropna(), bins=100)
 	plt.show()
 	
 	# Distribution of SEDAN
