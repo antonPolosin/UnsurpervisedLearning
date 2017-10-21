@@ -1,0 +1,16 @@
+,Left_side,Right_side,Support,Confidence,Lift
+52,"Candy Bar,Magazine",Greeting Cards,0.016665,0.411126187,2.798966452
+55,"Toothpaste,Candy Bar",Greeting Cards,0.013175,0.331196581,2.254801928
+57,"Candy Bar,Magazine",Pencils,0.012005,0.296163809,2.195025452
+63,"Candy Bar,Pencils",Toothpaste,0.01139,0.344994699,2.150504593
+64,"Toothpaste,Candy Bar",Pencils,0.01139,0.286324786,2.122103289
+60,"Candy Bar,Magazine",Toothpaste,0.01372,0.338472925,2.109851486
+54,"Greeting Cards,Candy Bar",Toothpaste,0.013175,0.301763628,1.881026199
+17,Candy Bar,Greeting Cards,0.04366,0.255314172,1.738190912
+51,"Greeting Cards,Candy Bar",Magazine,0.016665,0.381699496,1.581813456
+58,"Candy Bar,Pencils",Magazine,0.012005,0.363622596,1.506900378
+25,Candy Bar,Toothpaste,0.03978,0.232624777,1.450053153
+21,Candy Bar,Pencils,0.033015,0.19306453,1.430902578
+61,"Toothpaste,Candy Bar",Magazine,0.01372,0.344896933,1.429298743
+19,Candy Bar,Magazine,0.040535,0.237039853,0.982324662
+23,Candy Bar,Pens,0.012265,0.071723049,0.499551099
