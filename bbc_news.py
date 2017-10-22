@@ -191,11 +191,14 @@ print("Silhouette score for k=4", silhouette_score(X, clusters[1].predict(X)))
 
 print(clusters[2])
 print("Silhouette score for k=6", silhouette_score(X, clusters[2].predict(X)))
+
+print(clusters[3])
+print("Silhouette score for k=8", silhouette_score(X, clusters[3].predict(X)))
 #
 #
 # # K means clustering using the new term vector, time it for comparison to SVD
 #
-kmeans_fil = KMeans(n_clusters=9, random_state=42).fit(X_filter)
+kmeans_fil = KMeans(n_clusters=8, random_state=42).fit(X_filter)
 print("######### FEATURE SELECTION AND TRANSFORMATION ###########################")
 visualise_text_cluster(kmeans_fil.n_clusters, kmeans_fil.cluster_centers_, filter_vec.get_feature_names())
 
@@ -207,13 +210,13 @@ sorted_comp = svd.components_.argsort()[:, ::-1]
 terms = filter_vec.get_feature_names()
 print("####################### CONCEPT/COMPONENT RELATIONSHIPS ################################")
 # visualise word - concept/component relationships
-for comp_num in range(10):
+for comp_num in range(8):
     print("Top terms in component #{}".format(comp_num), end=" ")
     for i in sorted_comp[comp_num, :5]:
         print(terms[i], end=", ")
     print()
 
-svd_kmeans = KMeans(n_clusters=9, random_state=42).fit(X_trans)
+svd_kmeans = KMeans(n_clusters=8, random_state=42).fit(X_trans)
 
 # transform cluster centers back to original feature space for visualisation
 original_space_centroids = svd.inverse_transform(svd_kmeans.cluster_centers_)
