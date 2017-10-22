@@ -41,7 +41,6 @@ def result():
 	results = apyori()
 	
 	result_df = convert_apriori_results_to_pandas_df(results)
-
 	print(result_df.head(20))
 	
 	result_df = result_df.sort_values(by='Lift', ascending=False)
@@ -50,22 +49,7 @@ def result():
 	
 def pairplot():	
 	results_df = result()
-	df2 = results_df[['Support', 'Confidence', 'Lift']]
-	scaler = StandardScaler()
-	
-	X = df2.as_matrix()
-	X = scaler.fit_transform(X)
-	
-	model = KMeans(n_clusters=3, random_state=42).fit(X)
-	y = model.predict(X)
-	df2['Cluster_ID'] = y
-	
-	# how many records are in each cluster
-	print("Cluster membership")
-	print(df2['Cluster_ID'].value_counts())
-
-	# pairplot the cluster distribution.
-	cluster_g = sns.pairplot(df2, hue='Cluster_ID')
+	cluster_g = sns.pairplot(results_df, hue='Items')
 	plt.show()
 	
 def convert_apriori_results_to_pandas_df(results):
@@ -73,7 +57,7 @@ def convert_apriori_results_to_pandas_df(results):
     
     for rule_set in results:
         for rule in rule_set.ordered_statistics:
-            rules.append([','.join(rule.items_base), ','.join(rule.items_add), # items_base = left side of rules, items_add = right side
+            rules.append([len(rule.items_base) + len(rule.items_add),','.join(rule.items_base), ','.join(rule.items_add), # items_base = left side of rules, items_add = right side
                          rule_set.support, rule.confidence, rule.lift]) # support, confidence and lift for respective rules
     
-    return pd.DataFrame(rules, columns=['Left_side', 'Right_side', 'Support', 'Confidence', 'Lift']) # typecast it to pandas df
+    return pd.DataFrame(rules, columns=['Items','Left_side', 'Right_side', 'Support', 'Confidence', 'Lift']) # typecast it to pandas df
